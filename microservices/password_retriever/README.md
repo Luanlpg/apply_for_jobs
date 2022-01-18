@@ -1,4 +1,4 @@
-### 🪢 Password Retriever
+### Password Retriever
 
 Responsável por recuperar senha, descriptografa-la e atualizar base com permissões.
 
