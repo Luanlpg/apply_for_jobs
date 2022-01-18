@@ -1,0 +1,50 @@
+<div class="centralized-container">
+  <p-card header="Password Generator" [style]="{ height: '200px' }">
+    <div class="form-container">
+      <div class="date-input-flex-container">
+        <div class="flex-label">
+          <label for="expirationDate">Expiration Datetime</label>
+        </div>
+        <div class="flex-input-date">
+          <p-calendar
+            [(ngModel)]="expirationDate"
+            [showTime]="true"
+            [showSeconds]="true"
+            [minDate]="today"
+            inputId="time"
+          ></p-calendar>
+        </div>
+      </div>
+
+      <div class="number-input-flex-container">
+        <div class="flex-label">
+          <label for="numberOfPermissions">Number of Permissions</label>
+        </div>
+        <div class="flex-input">
+          <p-inputNumber
+            [(ngModel)]="numberOfPermissions"
+            mode="decimal"
+            [showButtons]="true"
+            inputId="numberOfPermissions"
+            [min]="1"
+            [max]="10"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+
+      <p-button
+        class="margin-button"
+        (click)="createPassword()"
+        label="Generate"
+      ></p-button>
+    </div>
+  </p-card>
+</div>
+
+<div class="centralized-spinbar">
+  <app-spin-bar *ngIf="inProgress"></app-spin-bar>
+</div>
+<div class="output-centralized-container" *ngIf="passwordId && !inProgress">
+  <app-password-field id="{{ passwordId }}"></app-password-field>
+</div>
