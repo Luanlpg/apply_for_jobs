@@ -45,6 +45,6 @@
 <div class="centralized-spinbar">
   <app-spin-bar *ngIf="inProgress"></app-spin-bar>
 </div>
-<div class="output-centralized-container" *ngIf="passwordId && !inProgress">
-  <app-password-field id="{{ passwordId }}"></app-password-field>
+<div class="output-centralized-container" *ngIf="passwordURL && !inProgress">
+  <app-password-field textToCopy="{{ passwordURL }}"></app-password-field>
 </div>

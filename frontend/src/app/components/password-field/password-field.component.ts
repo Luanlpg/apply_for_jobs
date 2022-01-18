@@ -7,22 +7,18 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./password-field.component.scss'],
 })
 export class PasswordFieldComponent implements OnInit {
-  @Input() id: string;
-  passwordURL: string;
-  basePasswordURL: string = environment.basePublicURL;
+  @Input() textToCopy: string;
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.passwordURL = `${this.basePasswordURL}/${this.id}`;
-  }
+  ngOnInit(): void {}
 
   copyToClipBoard() {
     if (!navigator.clipboard) {
       alert('Clipboard API not supported');
       return;
     }
-    navigator.clipboard.writeText(this.passwordURL);
+    navigator.clipboard.writeText(this.textToCopy);
     alert('Copied!');
   }
 }

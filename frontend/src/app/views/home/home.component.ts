@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { PasswordService } from 'src/app/shared/service/password.service';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  expirationDate: Date;
-  numberOfPermissions: number;
-  passwordId: string;
+  basePasswordURL: string = environment.basePublicURL;
+  expirationDate?: Date;
+  numberOfPermissions?: number;
+  passwordURL: string;
   today: Date = new Date();
   inProgress: boolean;
 
@@ -31,7 +32,11 @@ export class HomeComponent implements OnInit {
       .createPassword(this.numberOfPermissions, this.expirationDate)
       .subscribe((response) => {
         this.inProgress = false;
-        this.passwordId = JSON.parse(response.body).id;
+        delete this.expirationDate;
+        delete this.numberOfPermissions;
+        this.passwordURL = `${this.basePasswordURL}/${
+          JSON.parse(response.body).id
+        }`;
       });
   }
 }

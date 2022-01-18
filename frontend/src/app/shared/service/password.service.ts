@@ -31,4 +31,16 @@ export class PasswordService {
       this.httpOptions
     );
   }
+
+  retrievePassword(id: string): Observable<any> {
+    let payload = {
+      id: id,
+    };
+
+    return this.httpClient.post<any>(
+      `${this.apiURL}/password-retrieve`,
+      payload,
+      this.httpOptions
+    );
+  }
 }
