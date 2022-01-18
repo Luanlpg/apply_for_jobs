@@ -7,5 +7,5 @@ para gerar nova senha e url correspondente.
 
 ### Uso
 
-Para o acionamento manual da função `lambda` informar o atributo `number_of_permissions` e o atributo `expiration_date`
+Para o acionamento manual da função `lambda` informar o atributo `number_of_permissions` como inteiro e o atributo `expiration_date`
 no formato `dd-MM-yyyy HH:mm:ss`.
