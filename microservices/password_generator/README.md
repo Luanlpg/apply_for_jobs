@@ -1,4 +1,4 @@
-### 🪢 Password Generator
+### Password Generator
 
 Responsável por gerar senha complexa, criptografa-la, salvar na base e gerar url para acesso temporário.
 
