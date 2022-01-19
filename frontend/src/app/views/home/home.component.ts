@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         this.inProgress = false;
         delete this.expirationDate;
         delete this.numberOfPermissions;
-        this.passwordURL = `${this.basePasswordURL}/${
+        this.passwordURL = `${this.basePasswordURL}/password/${
           JSON.parse(response.body).id
         }`;
       });
